@@ -19,12 +19,14 @@ public class Main {
             choice = scanner.nextShort();
             scanner.nextLine();
             System.out.println("\n\n\n\n\n");
-            doTask(choice);
+            if(choice != 0){
+                doTask(choice);
+            }
         } while (choice != 0);
     }
 
     private static void doTask(short index) {
-        Tasks()[index].doTask();
+        Tasks()[--index].doTask();
         pressEnter();
     }
 
@@ -46,15 +48,29 @@ public class Main {
     }
 
     private static void task1() {
-
+        System.out.println("Fall seven times");
+        System.out.println("and");
+        System.out.println("stand up eight");
     }
 
     private static void task2() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the value:");
+        double number = scanner.nextDouble();
+        System.out.println("Please enter the percent:");
+        double percentage = scanner.nextDouble();
+        double result = (percentage / 100) * number;
+        System.out.println(percentage + "% from " + number + " is " + result);
     }
 
     private static void task3() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the value:");
+        int number = scanner.nextInt();
+        String reversedString = new StringBuilder(Integer.toString((number)))
+                .reverse()
+                .toString();
+        System.out.println(reversedString);
     }
 
     private static void task4() {
@@ -94,7 +110,7 @@ public class Main {
     }
 
     private static void pressEnter() {
-        System.out.println("\nPress ENTER");
+        System.out.println("\n\n\nPress ENTER");
         Scanner scanner = new Scanner(System.in);
         scanner.nextLine();
         System.out.println("\n\n\n\n\n");
