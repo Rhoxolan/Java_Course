@@ -74,7 +74,27 @@ public class Main {
     }
 
     private static void task4() {
-
+        System.out.println("Please enter the value of hours:");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        if(number > 23) {
+            System.out.println("There is no such hour!");
+        }
+        else if (number > 16) {
+            System.out.println("Good Evening!");
+        }
+        else if (number > 12) {
+            System.out.println("Good Day!");
+        }
+        else if (number > 5) {
+            System.out.println("Good Morning!");
+        }
+        else if (number > -1) {
+            System.out.println("Good Night!");
+        }
+        else if (number < 0) {
+            System.out.println("There is no such hour!");
+        }
     }
 
     private static void task5() {
