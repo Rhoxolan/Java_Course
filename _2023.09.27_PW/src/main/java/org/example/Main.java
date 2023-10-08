@@ -2,10 +2,6 @@ package org.example;
 
 import java.util.Scanner;
 
-interface Task {
-    void doTask();
-}
-
 public class Main {
     public static void main(String[] args) {
         practicalWork();
@@ -98,7 +94,30 @@ public class Main {
     }
 
     private static void task5() {
-
+        System.out.println("Please enter the value:");
+        Scanner scanner = new Scanner(System.in);
+        int value = scanner.nextInt();
+        String stringValue = Integer.toString(value);
+        if (stringValue.length() > 6) {
+            System.out.println("The value is bigger then 6!");
+            return;
+        }
+        char[] firstPart = stringValue.substring(0, stringValue.length() / 2).toCharArray();
+        char[] secondPart = stringValue.substring(stringValue.length() / 2).toCharArray();
+        int firstPartValue = 0;
+        int secondPartValue = 0;
+        for (char number: firstPart) {
+            firstPartValue += Character.getNumericValue(number);
+        }
+        for (char number: secondPart) {
+            secondPartValue += Character.getNumericValue(number);
+        }
+        if(firstPartValue == secondPartValue){
+            System.out.println("The number " + stringValue + " is lucky!");
+        }
+        else {
+            System.out.println("The number " + stringValue + " isn`t lucky!");
+        }
     }
 
     private static void task6() {
@@ -135,4 +154,8 @@ public class Main {
         scanner.nextLine();
         System.out.println("\n\n\n\n\n");
     }
+}
+
+interface Task {
+    void doTask();
 }
