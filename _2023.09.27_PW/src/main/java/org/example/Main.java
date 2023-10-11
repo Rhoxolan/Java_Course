@@ -121,7 +121,24 @@ public class Main {
     }
 
     private static void task6() {
-
+        System.out.println("Please enter the value:");
+        Scanner scanner = new Scanner(System.in);
+        int value = scanner.nextInt();
+        if(value < 1 || value > 100) {
+            System.out.println("The value isn't valid!");
+        }
+        else if(value % 3 == 0 && value % 5 == 0) {
+            System.out.println("Fizz Buzz");
+        }
+        else if (value % 3 == 0) {
+            System.out.println("Fizz");
+        }
+        else if (value % 5 == 0) {
+            System.out.println("Buzz");
+        }
+        else {
+            System.out.println(value);
+        }
     }
 
     private static void task7() {
