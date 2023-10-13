@@ -142,7 +142,22 @@ public class Main {
     }
 
     private static void task7() {
+        System.out.println("Please enter the value:");
+        Scanner scanner = new Scanner(System.in);
+        long value = scanner.nextLong();
+        System.out.println("The factorial of the " + value +
+                " value is " + getFactorial(value));
+    }
 
+    private static long getFactorial(long number) {
+        if(number == 0 || number == 1){
+            return  1;
+        }
+        long factorial = 1;
+        for (long i = 1; i <= number; i++) {
+            factorial *= i;
+        }
+        return factorial;
     }
 
     private static void task8() {
