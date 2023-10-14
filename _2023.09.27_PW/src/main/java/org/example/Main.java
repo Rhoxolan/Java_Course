@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        practicalWork();
+        PracticalWork.practicalWork();
     }
+}
 
-    private static void practicalWork() {
+class PracticalWork {
+    public static void practicalWork() {
         short choice;
         do {
             System.out.println("\nPlease select the task (1 - 12)\n0 - Exit");
@@ -28,28 +30,37 @@ public class Main {
 
     private static Task[] Tasks() {
         Task[] tasks = new Task[12];
-        tasks[0] = Main::task1;
-        tasks[1] = Main::task2;
-        tasks[2] = Main::task3;
-        tasks[3] = Main::task4;
-        tasks[4] = Main::task5;
-        tasks[5] = Main::task6;
-        tasks[6] = Main::task7;
-        tasks[7] = Main::task8;
-        tasks[8] = Main::task9;
-        tasks[9] = Main::task10;
-        tasks[10] = Main::task11;
-        tasks[11] = Main::task12;
+        tasks[0] = Tasks::task1;
+        tasks[1] = Tasks::task2;
+        tasks[2] = Tasks::task3;
+        tasks[3] = Tasks::task4;
+        tasks[4] = Tasks::task5;
+        tasks[5] = Tasks::task6;
+        tasks[6] = Tasks::task7;
+        tasks[7] = Tasks::task8;
+        tasks[8] = Tasks::task9;
+        tasks[9] = Tasks::task10;
+        tasks[10] = Tasks::task11;
+        tasks[11] = Tasks::task12;
         return tasks;
     }
 
-    private static void task1() {
+    private static void pressEnter() {
+        System.out.println("\n\n\nPress ENTER");
+        Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
+        System.out.println("\n\n\n\n\n");
+    }
+}
+
+class Tasks {
+    public static void task1() {
         System.out.println("Fall seven times");
         System.out.println("and");
         System.out.println("stand up eight");
     }
 
-    private static void task2() {
+    public static void task2() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the value:");
         double number = scanner.nextDouble();
@@ -59,7 +70,7 @@ public class Main {
         System.out.println(percentage + "% from " + number + " is " + result);
     }
 
-    private static void task3() {
+    public static void task3() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the value:");
         int number = scanner.nextInt();
@@ -69,7 +80,7 @@ public class Main {
         System.out.println(reversedString);
     }
 
-    private static void task4() {
+    public static void task4() {
         System.out.println("Please enter the value of hours:");
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
@@ -93,7 +104,7 @@ public class Main {
         }
     }
 
-    private static void task5() {
+    public static void task5() {
         System.out.println("Please enter the value:");
         Scanner scanner = new Scanner(System.in);
         int value = scanner.nextInt();
@@ -120,7 +131,7 @@ public class Main {
         }
     }
 
-    private static void task6() {
+    public static void task6() {
         System.out.println("Please enter the value:");
         Scanner scanner = new Scanner(System.in);
         int value = scanner.nextInt();
@@ -141,15 +152,47 @@ public class Main {
         }
     }
 
-    private static void task7() {
+    public static void task7() {
         System.out.println("Please enter the value:");
         Scanner scanner = new Scanner(System.in);
         long value = scanner.nextLong();
         System.out.println("The factorial of the " + value +
-                " value is " + getFactorial(value));
+                " value is " + TaskUtils.getFactorial(value));
     }
 
-    private static long getFactorial(long number) {
+    public static void task8() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the start of the diapason:");
+        int startNumber = scanner.nextInt();
+        System.out.println("Please enter the end of the diapason:");
+        int endNumber = scanner.nextInt();
+        System.out.println("\n\nThe simple numbers of the the diapason:");
+        for (int i = startNumber; i <= endNumber; i++) {
+            if(TaskUtils.isSimple(i)){
+                System.out.println(i);
+            }
+        }
+    }
+
+    public static void task9() {
+        //Shall be written!
+    }
+
+    public static void task10() {
+        //Shall be written!
+    }
+
+    public static void task11() {
+        //Shall be written!
+    }
+
+    public static void task12() {
+        //Shall be written!
+    }
+}
+
+class TaskUtils {
+    public static long getFactorial(long number) {
         if(number == 0 || number == 1){
             return  1;
         }
@@ -160,21 +203,7 @@ public class Main {
         return factorial;
     }
 
-    private static void task8() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the start of the diapason:");
-        int startNumber = scanner.nextInt();
-        System.out.println("Please enter the end of the diapason:");
-        int endNumber = scanner.nextInt();
-        System.out.println("\n\nThe simple numbers of the the diapason:");
-        for (int i = startNumber; i <= endNumber; i++) {
-            if(isSimple(i)){
-                System.out.println(i);
-            }
-        }
-    }
-
-    private static boolean isSimple(int num){
+    public static boolean isSimple(int num){
         boolean isSimple = true;
         for (int i = 2; i <= num/2 ; i++) {
             if(num % i == 0){
@@ -183,29 +212,6 @@ public class Main {
             }
         }
         return isSimple;
-    }
-
-    private static void task9() {
-
-    }
-
-    private static void task10() {
-
-    }
-
-    private static void task11() {
-
-    }
-
-    private static void task12() {
-
-    }
-
-    private static void pressEnter() {
-        System.out.println("\n\n\nPress ENTER");
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-        System.out.println("\n\n\n\n\n");
     }
 }
 
