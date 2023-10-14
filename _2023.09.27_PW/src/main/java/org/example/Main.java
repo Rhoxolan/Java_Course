@@ -161,7 +161,28 @@ public class Main {
     }
 
     private static void task8() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the start of the diapason:");
+        int startNumber = scanner.nextInt();
+        System.out.println("Please enter the end of the diapason:");
+        int endNumber = scanner.nextInt();
+        System.out.println("\n\nThe simple numbers of the the diapason:");
+        for (int i = startNumber; i <= endNumber; i++) {
+            if(isSimple(i)){
+                System.out.println(i);
+            }
+        }
+    }
 
+    private static boolean isSimple(int num){
+        boolean isSimple = true;
+        for (int i = 2; i <= num/2 ; i++) {
+            if(num % i == 0){
+                isSimple = false;
+                break;
+            }
+        }
+        return isSimple;
     }
 
     private static void task9() {
