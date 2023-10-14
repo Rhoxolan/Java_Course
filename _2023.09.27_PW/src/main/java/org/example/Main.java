@@ -175,19 +175,65 @@ class Tasks {
     }
 
     public static void task9() {
-        //Shall be written!
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Please enter the " + (i + 1) + " value of the array");
+            arr[i] = scanner.nextInt();
+        }
+        System.out.println("Sum of the array`s elements: " + TaskUtils.sumOfTheArray(arr));
+        System.out.println("Average value of the array`s elements: " + TaskUtils.averageOfTheArray(arr));
+        System.out.print("List of the all elements of the array: ");
+        for (int i: arr) {
+            System.out.print(i + " ");
+        }
     }
 
     public static void task10() {
-        //Shall be written!
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Please enter the " + (i + 1) + " value of the array");
+            arr[i] = scanner.nextInt();
+        }
+        System.out.println("Please enter the searching number:");
+        int searchingNum = scanner.nextInt();
+        int count = 0;
+        for (int num: arr) {
+            if(num == searchingNum)
+                count++;
+        }
+        System.out.println("The number " + searchingNum + " contains in the array for " + count + " times");
     }
 
     public static void task11() {
-        //Shall be written!
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the start of the diapason:");
+        int startNumber = scanner.nextInt();
+        System.out.println("Please enter the end of the diapason:");
+        int endNumber = scanner.nextInt();
+        int sumOfTheDiapason = 0;
+        for (int i = startNumber; i <= endNumber; i++) {
+            sumOfTheDiapason += i;
+        }
+        System.out.println("The sum of the all values of the inputted diapason: " + sumOfTheDiapason);
     }
 
     public static void task12() {
-        //Shall be written!
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println("Please enter the " + (i + 1) + " value of the array");
+            arr[i] = scanner.nextInt();
+        }
+        long[] factorialsArr = new long[10];
+        for (int i = 0; i < arr.length; i++){
+            factorialsArr[i] = TaskUtils.getFactorial(arr[i]);
+        }
+        System.out.print("Factorial numbers of the array: ");
+        for(long i: factorialsArr){
+            System.out.print(i + " ");
+        }
     }
 }
 
@@ -212,6 +258,18 @@ class TaskUtils {
             }
         }
         return isSimple;
+    }
+
+    public static int sumOfTheArray(int[] arr){
+        int sum = 0;
+        for (int num: arr) {
+            sum += num;
+        }
+        return sum;
+    }
+
+    public static double averageOfTheArray(int[] arr) {
+        return (double)sumOfTheArray(arr) / arr.length;
     }
 }
 
