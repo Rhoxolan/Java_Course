@@ -58,7 +58,8 @@ class PracticalWork {
 
 class Tasks {
     public static void task1() {
-
+        System.out.println("\"Your time is limited,\n\tso don’t waste it\n\t\tliving someone else’s life\"" +
+                "\n\t\t\tSteve Jobs");
     }
 
     public static void task2() {
