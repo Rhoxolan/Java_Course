@@ -63,7 +63,17 @@ class Tasks {
     }
 
     public static void task2() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the first value:");
+        double firstVal = scanner.nextDouble();
+        System.out.println("Please enter the second value:");
+        double secondVal = scanner.nextDouble();
+        double sum = firstVal + secondVal;
+        double diff = firstVal - secondVal;
+        double product = firstVal * secondVal;
+        System.out.println("Sum of the values: " + sum);
+        System.out.println("Difference of the values: " + diff);
+        System.out.println("Product of the values: " + product);
     }
 
     public static void task3() {
