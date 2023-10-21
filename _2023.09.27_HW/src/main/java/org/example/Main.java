@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -77,11 +78,38 @@ class Tasks {
     }
 
     public static void task3() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the first value:");
+        int firstVal = scanner.nextInt();
+        System.out.println("Please enter the second value:");
+        int secondVal = scanner.nextInt();
+        System.out.println("Please enter the third value:");
+        int thirdVal = scanner.nextInt();
+        String valueString = Integer.toString(firstVal)
+                + Integer.toString(secondVal)
+                + Integer.toString(thirdVal);
+        int concatenatedValue = Integer.parseInt(valueString);
+        System.out.println("The concatenated value is " + concatenatedValue);
     }
 
     public static void task4() {
-
+        System.out.println("Please enter the value:");
+        Scanner scanner = new Scanner(System.in);
+        int value = scanner.nextInt();
+        String stringValue = Integer.toString(value);
+        if (stringValue.length() != 6) {
+            System.out.println("The value length isn`t 6!");
+            return;
+        }
+        char[] charArrayValue = stringValue.toCharArray();
+        char temp = charArrayValue[0];
+        charArrayValue[0] = charArrayValue[5];
+        charArrayValue[5] = temp;
+        temp = charArrayValue[1];
+        charArrayValue[1] = charArrayValue[4];
+        charArrayValue[4] = temp;
+        int replacedValue = Integer.parseInt(new String(charArrayValue));
+        System.out.println("The replaced value is: " + replacedValue);
     }
 
     public static void task5() {
