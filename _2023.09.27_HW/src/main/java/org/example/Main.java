@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -166,9 +167,9 @@ class Tasks {
 
     public static void task7() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the number start of the diapason:");
+        System.out.println("Please enter the start of the diapason:");
         int start = scanner.nextInt();
-        System.out.println("Please enter the number end of the diapason:");
+        System.out.println("Please enter the end of the diapason:");
         int end = scanner.nextInt();
         System.out.println();
         for (int i = Math.min(start, end); i <= Math.max(start, end); i++) {
@@ -179,11 +180,38 @@ class Tasks {
     }
 
     public static void task8() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the start of the diapason:");
+        int start = scanner.nextInt();
+        System.out.println("Please enter the end of the diapason:");
+        int end = scanner.nextInt();
+        for (int i = Math.min(start, end); i <= Math.max(start, end); i++) {
+            System.out.println("\n");
+            for (int j = 2; j <= 9; j++){
+                System.out.print(i + " * " + j + " = " + (i * j) + "\t");
+            }
+        }
     }
 
     public static void task9() {
-
+        int[] array = new int[10];
+        Random rand = new Random();
+        for (int i = 0; i < array.length; i++){
+            array[i] = rand.nextInt(201) - 100;
+        }
+        int minFromTheArray = TaskUtils.minFromTheArray(array);
+        int maxFromTheArray = TaskUtils.maxFromTheArray(array);
+        int countOfNegativeNumbers = TaskUtils.getNegativeNumbersCountFromTheArray(array);
+        int countOfPositiveNumbers = TaskUtils.getPositiveNumbersCountFromTheArray(array);
+        int countOfZero = TaskUtils.getZeroCountFromTheArray(array);
+        for (int i : array){
+            System.out.print(i + " ");
+        }
+        System.out.println("\nThe min value from the array: " + minFromTheArray);
+        System.out.println("The max value from the array: " + maxFromTheArray);
+        System.out.println("The count of negative numbers from the array: " + countOfNegativeNumbers);
+        System.out.println("The count of positive numbers from the array: " + countOfPositiveNumbers);
+        System.out.println("The count of zero from the array: " + countOfZero);
     }
 
     public static void task10() {
@@ -210,6 +238,58 @@ class TaskUtils {
 
     public static double convertMetersToYards(int meters) {
         return meters * 1.0936;
+    }
+
+    public static Integer minFromTheArray(int[] array){
+        if(array.length == 0){
+            return null;
+        }
+        int min = Integer.MAX_VALUE;
+        for (int num : array) {
+            min = Math.min(min, num);
+        }
+        return min;
+    }
+
+    public static Integer maxFromTheArray(int[] array){
+        if(array.length == 0){
+            return null;
+        }
+        int max = Integer.MIN_VALUE;
+        for (int num : array) {
+            max = Math.max(max, num);
+        }
+        return max;
+    }
+
+    public static int getNegativeNumbersCountFromTheArray(int[] array){
+        int count = 0;
+        for (int num : array){
+            if(num < 0){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int getPositiveNumbersCountFromTheArray(int[] array){
+        int count = 0;
+        for (int num : array){
+            if(num > 0){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int getZeroCountFromTheArray(int[] array){
+        int count = 0;
+        for (int num : array){
+            if(num == 0){
+                count++;
+            }
+        }
+        return count;
     }
 }
 
