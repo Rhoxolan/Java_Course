@@ -142,11 +142,40 @@ class Tasks {
     }
 
     public static void task6() {
-
+        System.out.println("Please enter the number of meters:");
+        Scanner scanner = new Scanner(System.in);
+        int meters = scanner.nextInt();
+        System.out.println("Please select:\n1 - miles;\n2 - inches;\n3 - yards\n0 - exit");
+        int choice = scanner.nextInt();
+        if(choice < 0 || choice > 3){
+            System.out.println("The input isn`t valid!");
+        }
+        else if (choice == 3) {
+            System.out.println("The miles value is: " +
+                    TaskUtils.convertMetersToYards(meters) + " yd");
+        }
+        else if (choice == 2) {
+            System.out.println("The inches value is: " +
+                    TaskUtils.convertMetersToInches(meters) + " in");
+        }
+        else if (choice == 1) {
+            System.out.println("The inches value is: " +
+                    TaskUtils.convertMetersToMiles(meters) + " mi");
+        }
     }
 
     public static void task7() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the number start of the diapason:");
+        int start = scanner.nextInt();
+        System.out.println("Please enter the number end of the diapason:");
+        int end = scanner.nextInt();
+        System.out.println();
+        for (int i = Math.min(start, end); i <= Math.max(start, end); i++) {
+            if(i % 2 != 0){
+                System.out.println(i);
+            }
+        }
     }
 
     public static void task8() {
@@ -171,7 +200,17 @@ class Tasks {
 }
 
 class TaskUtils {
+    public static double convertMetersToInches(int meters) {
+        return meters * 39.370;
+    }
 
+    public static double convertMetersToMiles(int meters) {
+        return meters * 0.00062137;
+    }
+
+    public static double convertMetersToYards(int meters) {
+        return meters * 1.0936;
+    }
 }
 
 interface Task {
