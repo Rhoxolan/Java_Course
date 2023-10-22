@@ -215,7 +215,84 @@ class Tasks {
     }
 
     public static void task10() {
-
+        int[] firstArray = new int[50];
+        Random rand = new Random();
+        for (int i = 0; i < firstArray.length; i++){
+            firstArray[i] = rand.nextInt(201) - 100;
+        }
+        int[] evenBufferArray = new int[firstArray.length];
+        int[] oddBufferArray = new int[firstArray.length];
+        int[] positiveBufferArray = new int[firstArray.length];
+        int[] negativeBufferArray = new int[firstArray.length];
+        int[] evenArray;
+        int[] oddArray;
+        int[] positiveArray;
+        int[] negativeArray;
+        int evenCount = -1;
+        int oddCount = -1;
+        int positiveCount = -1;
+        int negativeCount = -1;
+        for(int num : firstArray){
+            if(num % 2 == 0){
+                evenCount++;
+                evenBufferArray[evenCount] = num;
+            }
+            else {
+                oddCount++;
+                oddBufferArray[oddCount] = num;
+            }
+            if(num > 0){
+                positiveCount++;
+                positiveBufferArray[positiveCount] = num;
+            }
+            else{
+                negativeCount++;
+                negativeBufferArray[negativeCount] = num;
+            }
+        }
+        evenArray = new int[evenCount];
+        oddArray = new int[oddCount];
+        positiveArray = new int[positiveCount];
+        negativeArray = new int[negativeCount];
+        for(int i = 0; i < firstArray.length; i++){
+            if(i < evenCount){
+                evenArray[i] = evenBufferArray[i];
+            }
+            if(i < oddCount){
+                oddArray[i] = oddBufferArray[i];
+            }
+            if(i < positiveCount){
+                positiveArray[i] = positiveBufferArray[i];
+            }
+            if(i < negativeCount){
+                negativeArray[i] = negativeBufferArray[i];
+            }
+        }
+        System.out.print("First array: ");
+        for (int num: firstArray) {
+            System.out.print(num + " ");
+        }
+        System.out.print("\n");
+        System.out.print("Even`s array: ");
+        for (int num: evenArray) {
+            System.out.print(num + " ");
+        }
+        System.out.print("\n");
+        System.out.print("Odd`s array: ");
+        for (int num: oddArray) {
+            System.out.print(num + " ");
+        }
+        System.out.print("\n");
+        System.out.print("Positive`s array: ");
+        for (int num: positiveArray) {
+            System.out.print(num + " ");
+        }
+        System.out.print("\n");
+        System.out.print("Negative`s array: ");
+        for (int num: negativeArray) {
+            System.out.print(num + " ");
+        }
+        System.out.print("\n");
     }
 
     public static void task11() {
