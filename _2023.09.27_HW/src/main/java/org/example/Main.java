@@ -296,7 +296,23 @@ class Tasks {
     }
 
     public static void task11() {
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter the direction of the line.\n1 - Horizontal\n2 - Vertical\n" +
+                "0 - Exit");
+        int choice = scanner.nextInt();
+        if(choice < 1 || choice > 2){
+            if(choice != 0) {
+                System.out.println("Input error!");
+            }
+            return;
+        }
+        System.out.println("Please enter the length of the line:");
+        int length = scanner.nextInt();
+        System.out.println("Please enter the symbol of the line:");
+        String symbol = scanner.next();
+        for (int i = 0; i < length; i++) {
+            System.out.print(symbol + (choice == 2 ? "\n" : ""));
+        }
     }
 
     public static void task12() {
