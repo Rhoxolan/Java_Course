@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -316,7 +317,29 @@ class Tasks {
     }
 
     public static void task12() {
-
+        int[] array = new int[10];
+        Random rand = new Random();
+        for (int i = 0; i < array.length; i++){
+            array[i] = rand.nextInt(201) - 100;
+        }
+        System.out.print("Array: ");
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nPlease enter the direction of sorting.\n1 - Ascending\n2 - Descending\n" +
+                "0 - Exit");
+        int choice = scanner.nextInt();
+        if(choice < 1 || choice > 2){
+            if(choice != 0) {
+                System.out.println("Input error!");
+            }
+            return;
+        }
+        System.out.print("Sorted array: ");
+        for (int i : choice == 1 ? TaskUtils.sortArrayByAscending(array) : TaskUtils.sortArrayByDescending(array)) {
+            System.out.print(i + " ");
+        }
     }
 }
 
@@ -383,6 +406,21 @@ class TaskUtils {
             }
         }
         return count;
+    }
+
+    public static int[] sortArrayByAscending(int[] array){
+        int[] newArray = Arrays.copyOf(array, array.length);
+        Arrays.sort(newArray);
+        return newArray;
+    }
+
+    public static int[] sortArrayByDescending(int[] array){
+        int[] sortedArray = sortArrayByAscending(array);
+        int[] newArray = new int[array.length];
+        for (int i = 0; i < array.length ; i++){
+            newArray[i] = sortedArray[array.length - i - 1];
+        }
+        return newArray;
     }
 }
 
